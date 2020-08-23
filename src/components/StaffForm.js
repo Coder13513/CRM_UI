@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import axios from 'axios'
+ import axios from 'axios'
 import { Form } from 'react-bootstrap'
 // import { API_PATH } from "../components/Global";
 
@@ -8,7 +8,7 @@ class StaffForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            EmpId: '',
+            EmpId: '1',
             department: '',
             packageId: '',
             no_of_holidays_allowed: '',
@@ -151,23 +151,24 @@ class StaffForm extends Component {
         fd.append("Joining_date", this.state.Joining_date)
         fd.append("description", this.state.description)
        
-        // axios({
-        //     method: 'POST',
-        //     url: API_PATH.URL + "archives/",
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': 'Bearer'+ticket 
-        //     },
-        //     data: fd
-        // })
-        //     .then(response => {
-        //         console.log(response)
+        axios({
+            method: 'POST',
+            // url: API_PATH.URL + "archives/",
+            url: 'http://127.0.0.1:8000/api/hr/staff/',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer'+ticket 
+            },
+            data: fd
+        })
+            .then(response => {
+                console.log(response)
 
-        //     })
-        //     .catch(error => {
-        //         console.log('failure:' + JSON.stringify(this.state));
-        //         console.log(error)
-        //     })
+            })
+            .catch(error => {
+                console.log('failure:' + JSON.stringify(this.state));
+                console.log(error)
+            })
 
     }
 
@@ -191,7 +192,7 @@ class StaffForm extends Component {
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label  mt-1" for="usr">EmpId:</label>                           
                                 <div class="col-sm-7">
-                                    <select class="myselect" value={EmpId} onChange={this.EmpIdchange}>
+                                    <select class="myselect"  onChange={this.EmpIdchange}>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>

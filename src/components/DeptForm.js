@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import axios from 'axios'
+import axios from 'axios'
 import { Form } from 'react-bootstrap'
 // import { API_PATH } from "../components/Global";
 
@@ -8,7 +8,7 @@ class DeptForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            deptID: '',
+            deptId: '',
             dept_name: '',           
             branch: '',
 
@@ -19,7 +19,7 @@ class DeptForm extends Component {
     }
     deptIDchange = (event) => {
         this.setState({
-            deptID: event.target.value
+            deptId: event.target.value
         })
     }
     deptnamechange = (event) => {
@@ -119,33 +119,34 @@ class DeptForm extends Component {
         event.preventDefault()
 
         let fd = new FormData()
-        fd.append("deptID", this.deptID)
+        fd.append("deptId", this.deptId)
         fd.append("dept_name", this.state.dept_name)
        
         fd.append("branch", this.state.branch)
 
-        // axios({
-        //     method: 'POST',
-        //     url: API_PATH.URL + "archives/",
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': 'Bearer'+ticket 
-        //     },
-        //     data: fd
-        // })
-        //     .then(response => {
-        //         console.log(response)
+        axios({
+            method: 'POST',
+            // url: API_PATH.URL + "archives/",
+            url: 'http://127.0.0.1:8000/api/hr/dept/',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer'+ticket 
+            },
+            data: fd
+        })
+            .then(response => {
+                console.log(response)
 
-        //     })
-        //     .catch(error => {
-        //         console.log('failure:' + JSON.stringify(this.state));
-        //         console.log(error)
-        //     })
+            })
+            .catch(error => {
+                console.log('failure:' + JSON.stringify(this.state));
+                console.log(error)
+            })
 
     }
 
     render() {
-        const { deptID, dept_name,  branch } = this.state
+        const { deptId, dept_name,  branch } = this.state
         // let optionItmes = categoryL.map((categ)=>
         // <option key={categ.id} value={categ.id}>{categ.name}</option>
         // );
@@ -164,7 +165,7 @@ class DeptForm extends Component {
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label  mt-4" for="usr">Department ID:</label>
                             <div class="col-sm-7">
-                                    <input type="text" name="name" class="form-control mt-4" value={deptID} onChange={this.deptIDchange} />
+                                    <input type="text" name="name" class="form-control mt-4" value={deptId} onChange={this.deptIDchange} />
                                 </div>
                                
                             </div>

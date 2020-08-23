@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import axios from 'axios'
+ import axios from 'axios'
 import { Form } from 'react-bootstrap'
 // import { API_PATH } from "../components/Global";
 
@@ -14,8 +14,9 @@ class ProjectForm extends Component {
             project_deadline:'',
             owner:'',
             project_status:'',
+            
             team_lead:'',
-            team_member:'',
+            team_member:'1',
             task_assigned:'',
             updates:'',
             task_deadline:'',                     
@@ -29,9 +30,9 @@ class ProjectForm extends Component {
             project_name: event.target.value
         })
     }
-    discriptionchange = (event) => {
+    descriptionchange = (event) => {
         this.setState({
-            discription: event.target.value
+            description: event.target.value
         })
     }  
    
@@ -41,7 +42,7 @@ class ProjectForm extends Component {
 
         })
     }
-    projectdeadlinechnage = (event) => {
+    projectdeadlinechange = (event) => {
         this.setState({
             project_deadline: event.target.value
 
@@ -193,23 +194,24 @@ class ProjectForm extends Component {
         fd.append("task_deadline", this.state.task_deadline)
        
 
-        // axios({
-        //     method: 'POST',
-        //     url: API_PATH.URL + "archives/",
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': 'Bearer'+ticket 
-        //     },
-        //     data: fd
-        // })
-        //     .then(response => {
-        //         console.log(response)
+        axios({
+            method: 'POST',
+            // url: API_PATH.URL + "archives/",
+            url:'http://127.0.0.1:8000/api/pm/Project/',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer'+ticket 
+            },
+            data: fd
+        })
+            .then(response => {
+                console.log(response)
 
-        //     })
-        //     .catch(error => {
-        //         console.log('failure:' + JSON.stringify(this.state));
-        //         console.log(error)
-        //     })
+            })
+            .catch(error => {
+                console.log('failure:' + JSON.stringify(this.state));
+                console.log(error)
+            })
 
     }
 
@@ -263,12 +265,12 @@ class ProjectForm extends Component {
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label  mt-1" for="sel1">Project Status:</label>
                             <div class="col-sm-7">
-                                <select class="myselect"  value={project_status} onChange={this.projectstatuschange}>
+                                <select class="myselect"  onChange={this.projectstatuschange}>
                                 <option value="1">Planning</option>                                    
                                 <option value="2">Developing</option>
                                 <option value="3">Testing</option>
                                 <option value="4">Deployement</option>
-                                <option value="4">Completed</option>
+                                <option value="5">Completed</option>
                                 {/* {optionItmesO} */}
                               {/* <option key={Archives.id} value= '1' >{Archives.email}</option> */}
                                 </select>
@@ -283,7 +285,7 @@ class ProjectForm extends Component {
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label mt-1 " for="usr">Team Member:</label>
                             <div class="col-sm-7">
-                                <select class="myselect"  value={team_member} onChange={this.team_memberchange}>
+                                <select class="myselect"   onChange={this.team_memberchange}>
                                 <option value="1">1</option>                                    
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -304,7 +306,7 @@ class ProjectForm extends Component {
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label mt-4" for="usr">Updates:</label>
                             <div class="col-sm-7">
-                                <input type="text" name="name" class="form-control mt-4" value={updates} onChange={this.updatesdatechange} />
+                                <input type="text" name="name" class="form-control mt-4" value={updates} onChange={this.updateschange} />
                             </div>
                         </div>
                         <div class="form-group row">

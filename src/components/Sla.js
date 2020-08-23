@@ -11,14 +11,13 @@ import {
 // import { API_PATH } from "../components/Global";
  
 import SlaForm from "../components/SlaForm";
+import SlaList from "../components/SLA/SlaList";
+import SlaEdit from "../components/SLA/SlaEdit";
 import HistoryForm from "../components/HistoryForm";
-// import RadioCategoryList from "../components/RadioCategoryList";
-// import RadioCategoryEdit from "../components/RadioCategoryEdit";
+import HList from "../components/SLA/HList";
 
 
-// import RadioChannelForm from "../components/RadioChannelForm";
-// import RadioChannelList from "../components/RadioChannelList";
-// import RadioChannelEdit from "../components/RadioChannelEdit";
+
 
 
 
@@ -77,13 +76,13 @@ export default function RadioFunction() {
                     <a class="option">SLA</a>
                 </div>
                 <div class="div2">
-                    <Link to={`${url}/CategoryEdit`}>
+                    <Link to={`${url}/SLAEdit`}>
                         <a role="button" class="btn action-btns"><i class="fa fa-edit" >Edit</i></a>
    </Link>
-                    <Link to={`${url}/Add`}>
+                    <Link to={`${url}/SLAAdd`}>
                         <a role="button" class="btn action-btns"><i class="fa fa-plus" >Add</i></a>
                     </Link>
-                    <Link to={`${url}/CategoryList`}>
+                    <Link to={`${url}/SLAList`}>
                         < a role="button" class="btn action-btns"><i class="fa fa-list" >List</i></a>
                     </Link>
                 </div>
@@ -106,7 +105,7 @@ export default function RadioFunction() {
 
                         <a role="button" class="btn action-btns"><i class="fa fa-plus" >Add</i></a>
                     </Link>
-                    <Link to={`${url}/ChannelList`}>
+                    <Link to={`${url}/HistoryList`}>
                         <a role="button" class="btn action-btns"><i class="fa fa-list" >List</i></a>
                     </Link>
                 </div>
@@ -137,21 +136,21 @@ export default function RadioFunction() {
 
         let { topicId } = useParams();
 
-        if (topicId === "Add") {
+        if (topicId === "SLAAdd") {
             return <SlaForm />
         }
-    //     if (topicId === "CategoryList") {
-    //         return <RadioCategoryList />
-    //     }
-    //     if (topicId === "CategoryEdit") {
-    //         return <RadioCategoryEdit />
-    //     }
+        if (topicId === "SLAList") {
+            return <SlaList />
+        }
+        if (topicId === "SLAEdit") {
+            return <SlaEdit />
+        }
         if (topicId === "HistoryAdd") {
             return <HistoryForm />
         }
-    //     if (topicId === "ChannelList") {
-    //         return <RadioChannelList />
-    //     }
+        if (topicId === "HistoryList") {
+            return <HList />
+        }
     //     if (topicId === "ChannelEdit") {
     //         return <RadioChannelEdit />
     //     }

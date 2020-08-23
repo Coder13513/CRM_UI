@@ -11,13 +11,14 @@ import {
 // import { API_PATH } from "../components/Global";
  
 import PackageForm from "../components/PackageForm";
-// import RadioCategoryList from "../components/RadioCategoryList";
-// import RadioCategoryEdit from "../components/RadioCategoryEdit";
+import EEdit from "../components/Payroll/EEdit";
+import EList from "../components/Payroll/EList";
+
 
 
 import SalaryForm from "../components/SalaryForm";
-// import RadioChannelList from "../components/RadioChannelList";
-// import RadioChannelEdit from "../components/RadioChannelEdit";
+import SList from "../components/Payroll/SList";
+import SEdit from "../components/Payroll/SEdit";
 
 
 
@@ -76,13 +77,13 @@ export default function RadioFunction() {
                     <a class="option">Employee Salary</a>
                 </div>
                 <div class="div2">
-                    <Link to={`${url}/CategoryEdit`}>
+                    <Link to={`${url}/PackageEdit`}>
                         <a role="button" class="btn action-btns"><i class="fa fa-edit" >Edit</i></a>
    </Link>
-                    <Link to={`${url}/Add`}>
+                    <Link to={`${url}/PackageAdd`}>
                         <a role="button" class="btn action-btns"><i class="fa fa-plus" >Add</i></a>
                     </Link>
-                    <Link to={`${url}/CategoryList`}>
+                    <Link to={`${url}/PackageList`}>
                         < a role="button" class="btn action-btns"><i class="fa fa-list" >List</i></a>
                     </Link>
                 </div>
@@ -98,14 +99,14 @@ export default function RadioFunction() {
                 </div>
 
                 <div class="div2">
-                    <Link to={`${url}/ChannelEdit`}>
+                    <Link to={`${url}/SalaryEdit`}>
                         <a role="button" class="btn action-btns"><i class="fa fa-edit" >Edit</i></a>
                     </Link>
                     <Link to={`${url}/SalaryAdd`}>
 
                         <a role="button" class="btn action-btns"><i class="fa fa-plus" >Add</i></a>
                     </Link>
-                    <Link to={`${url}/ChannelList`}>
+                    <Link to={`${url}/SalaryList`}>
                         <a role="button" class="btn action-btns"><i class="fa fa-list" >List</i></a>
                     </Link>
                 </div>
@@ -136,24 +137,24 @@ export default function RadioFunction() {
 
         let { topicId } = useParams();
 
-        if (topicId === "Add") {
+        if (topicId === "PackageAdd") {
             return <PackageForm />
         }
-    //     if (topicId === "CategoryList") {
-    //         return <RadioCategoryList />
-    //     }
-    //     if (topicId === "CategoryEdit") {
-    //         return <RadioCategoryEdit />
-    //     }
+        if (topicId === "PackageList") {
+            return <EList />
+        }
+        if (topicId === "PackageEdit") {
+            return <EEdit />
+        }
         if (topicId === "SalaryAdd") {
             return <SalaryForm/>
         }
-    //     if (topicId === "ChannelList") {
-    //         return <RadioChannelList />
-    //     }
-    //     if (topicId === "ChannelEdit") {
-    //         return <RadioChannelEdit />
-    //     }
+        if (topicId === "SalaryList") {
+            return <SList />
+        }
+        if (topicId === "SalaryEdit") {
+            return <SEdit />
+        }
       
     }
 

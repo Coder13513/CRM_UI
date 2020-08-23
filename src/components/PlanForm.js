@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import axios from 'axios'
+ import axios from 'axios'
 import { Form } from 'react-bootstrap'
 // import { API_PATH } from "../components/Global";
 
@@ -11,13 +11,13 @@ class PlanForm extends Component {
 
 
             planId: '',
-            Type:'',
-            duration:'',
-            dateOfCreation:'',
-            validity:'',
-            billingCycle:'',
-            dueDate:'',
-            terms:'',
+            Type: 'PREPAID',
+            duration: '',
+            dateOfCreation: '',
+            validity: '',
+            billingCycle: '',
+            dueDate: '',
+            terms: '',
 
 
             Archives: [],
@@ -26,32 +26,32 @@ class PlanForm extends Component {
         }
     }
 
-   
+
     planidchange = (event) => {
         this.setState({
-            EmpId: event.target.value
+            planId: event.target.value
         })
     }
     typechange = (event) => {
         this.setState({
-           Type: event.target.value
+            Type: event.target.value
         })
     }
-  durationchange = (event) => {
+    durationchange = (event) => {
         this.setState({
             duration: event.target.value
 
         })
     }
-   
 
-   dateofcreationchange = (event) => {
+
+    dateofcreationchange = (event) => {
         this.setState({
-          dateOfCreation: event.target.value
+            dateOfCreation: event.target.value
 
         })
     }
-  validitychange = (event) => {
+    validitychange = (event) => {
         this.setState({
             validity: event.target.value
 
@@ -69,9 +69,9 @@ class PlanForm extends Component {
 
         })
     }
-   termschange = (event) => {
+    termschange = (event) => {
         this.setState({
-           terms: event.target.value
+            terms: event.target.value
 
         })
     }
@@ -162,8 +162,7 @@ class PlanForm extends Component {
         event.preventDefault()
 
         let fd = new FormData()
-
-       
+        
         fd.append("planId", this.state.planId)
         fd.append("Type", this.state.Type)
         fd.append("duration", this.state.duration)
@@ -174,28 +173,29 @@ class PlanForm extends Component {
         fd.append("terms", this.state.terms)
 
 
-        // axios({
-        //     method: 'POST',
-        //     url: API_PATH.URL + "archives/",
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': 'Bearer'+ticket 
-        //     },
-        //     data: fd
-        // })
-        //     .then(response => {
-        //         console.log(response)
+        axios({
+            method: 'POST',
+            // url: API_PATH.URL + "archives/",
+            url:'http://127.0.0.1:8000/api/services/plan/',
+            headers: {
+                'Content-Type': 'application/json',
+                // 'Authorization': 'Bearer'+ticket 
+            },
+            data: fd
+        })
+            .then(response => {
+                console.log(response)
 
-        //     })
-        //     .catch(error => {
-        //         console.log('failure:' + JSON.stringify(this.state));
-        //         console.log(error)
-        //     })
+            })
+            .catch(error => {
+                console.log('failure:' + JSON.stringify(this.state));
+                console.log(error)
+            })
 
     }
 
     render() {
-        const { planId,Type,duration,dateOfCreation,validity,billingCycle,dueDate,terms } = this.state
+        const { planId, Type, duration, dateOfCreation, validity, billingCycle, dueDate, terms } = this.state
         // let optionItmes = categoryL.map((categ)=>
         // <option key={categ.id} value={categ.id}>{categ.name}</option>
         // );
@@ -210,21 +210,20 @@ class PlanForm extends Component {
 
                         <div >
                             <h2> Add Plan</h2>
-                     </div>
-                      
-                     <div class="form-group row">
-                                <label class="col-sm-3 col-form-label mt-4" for="usr">Plan Id</label>
-                                <div class="col-sm-7">
-                                    <input type="text" name="name" class="form-control mt-4" value={planId} onChange={this.planidchange} />
-                                </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label mt-4" for="usr">Plan Id</label>
+                            <div class="col-sm-7">
+                                <input type="text" name="name" class="form-control mt-4" value={planId} onChange={this.planidchange} />
                             </div>
+                        </div>
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label mt-2" for="usr">Type:</label>
                             <div class="col-sm-7">
-                                <select class="myselect" value={Type} onChange={this.Type}>
-                                    <option value="1">Prepaid</option>
-                                    <option value="2">Postpaid</option>
-                                   
+                                <select class="myselect" onChange={this.typechange}>
+                                <option value="PREPAID">Prepaid</option>
+                                    <option value="POSTPAID">Postpaid</option>
                                     {/* {optionItmesO} */}
                                     {/* <option key={Archives.id} value= '1' >{Archives.email}</option> */}
                                 </select>
@@ -243,8 +242,7 @@ class PlanForm extends Component {
                                 <input type="date" name="name" class="form-control mt-4" value={dateOfCreation} onChange={this.dateofcreationchange} />
                             </div>
                         </div>
-                      
-                      
+
 
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label mt-4" for="usr">Validity:</label>
@@ -265,7 +263,7 @@ class PlanForm extends Component {
                                 <input type="date" name="name" class="form-control mt-4" value={dueDate} onChange={this.duedatechange} />
                             </div>
                         </div>
-                      
+
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label mt-4" for="usr"> Terms:</label>
                             <div class="col-sm-7">

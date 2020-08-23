@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import axios from 'axios'
+ import axios from 'axios'
 import { Form } from 'react-bootstrap'
 // import { API_PATH } from "../components/Global";
 
@@ -19,7 +19,7 @@ class BusinessForm extends Component {
             details:'',
             start_date:'',
             deadline:'',
-            responsible_person:'',
+            responsible_person:'1',
             followup_date:'',
             followup_message:'',
             upload_documents:'',            
@@ -95,7 +95,7 @@ class BusinessForm extends Component {
 
         })
     }
-    deadline = (event) => {
+    deadlinechange = (event) => {
         this.setState({
             deadline: event.target.value
 
@@ -209,7 +209,7 @@ class BusinessForm extends Component {
         event.preventDefault()
 
         let fd = new FormData()
-        fd.append("project_name", this.project_name)
+        fd.append("project_name", this.state.project_name)
         fd.append("description", this.state.description)
         fd.append("company_name", this.state.company_name)
         fd.append("address", this.state.address)
@@ -226,23 +226,24 @@ class BusinessForm extends Component {
         fd.append("upload_documents", this.state.upload_documents)
 
 
-        // axios({
-        //     method: 'POST',
-        //     url: API_PATH.URL + "archives/",
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': 'Bearer'+ticket 
-        //     },
-        //     data: fd
-        // })
-        //     .then(response => {
-        //         console.log(response)
+        axios({
+            method: 'POST',
+            // url: API_PATH.URL + "archives/",
+            url:'http://127.0.0.1:8000/api/pm/BO/',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer'+ticket 
+            },
+            data: fd
+        })
+            .then(response => {
+                console.log(response)
 
-        //     })
-        //     .catch(error => {
-        //         console.log('failure:' + JSON.stringify(this.state));
-        //         console.log(error)
-        //     })
+            })
+            .catch(error => {
+                console.log('failure:' + JSON.stringify(this.state));
+                console.log(error)
+            })
 
     }
 
@@ -335,7 +336,7 @@ class BusinessForm extends Component {
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label mt-1" for="sel1">Responsible Person:</label>
                             <div class="col-sm-7">
-                                <select class="myselect"  value={responsible_person} onChange={this.responsiblepersonchange}>
+                                <select class="myselect"  onChange={this.responsiblepersonchange}>
                                     <option value="1">1</option>
                                     
                                 <option value="2">2</option>

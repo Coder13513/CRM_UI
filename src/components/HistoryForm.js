@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
-// import axios from 'axios'
+import axios from 'axios'
 import { Form } from 'react-bootstrap'
-// import { API_PATH } from "../components/Global";
+import { API_PATH } from "../components/Global"
 
 class HistoryForm extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            customer_name: '',
-            issue: '',
-           
-            ticket: '',
+            customer_name: '1',
+            // issue: '',
+
+            // ticket: '',
 
             Archives: [],
             // categoryL:[],
@@ -23,19 +23,19 @@ class HistoryForm extends Component {
             customer_name: event.target.value
         })
     }
-    issuechange = (event) => {
-        this.setState({
-            issue: event.target.value
-        })
-    }
+    // issuechange = (event) => {
+    //     this.setState({
+    //         issue: event.target.value
+    //     })
+    // }
 
-  
-    ticketchange = (event) => {
-        this.setState({
-            ticket: event.target.value
 
-        })
-    }
+    // ticketchange = (event) => {
+    //     this.setState({
+    //         ticket: event.target.value
+
+    //     })
+    // }
 
 
 
@@ -120,33 +120,35 @@ class HistoryForm extends Component {
         event.preventDefault()
 
         let fd = new FormData()
-        fd.append("customer_name", this.project_name)
-        fd.append("issue", this.state.description)
-       
-        fd.append("ticket", this.state.ticket)
+        fd.append("customer_name", this.state.customer_name)
+        // fd.append("issue", this.state.description)
 
-        // axios({
-        //     method: 'POST',
-        //     url: API_PATH.URL + "archives/",
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': 'Bearer'+ticket 
-        //     },
-        //     data: fd
-        // })
-        //     .then(response => {
-        //         console.log(response)
+        // fd.append("ticket", this.state.ticket)
 
-        //     })
-        //     .catch(error => {
-        //         console.log('failure:' + JSON.stringify(this.state));
-        //         console.log(error)
-        //     })
+        axios({
+            method: 'POST',
+            // url: API_PATH.URL + "archives/",
+            // url: API_PATH.URL + "sla/History/",
+            url:'http://127.0.0.1:8000/api/sla/History/',
+            headers: {
+                'Content-Type': 'application/json',
+                // 'Authorization': 'Bearer'+ticket 
+            },
+            data: fd
+        })
+            .then(response => {
+                console.log(response)
 
-    }
+            })
+            .catch(error => {
+                console.log('failure:' + JSON.stringify(this.state));
+                console.log(error)
+            })
+
+        }
 
     render() {
-        const { customer_name, issue,  ticket } = this.state
+        const { customer_name, issue, ticket } = this.state
         // let optionItmes = categoryL.map((categ)=>
         // <option key={categ.id} value={categ.id}>{categ.name}</option>
         // );
@@ -164,18 +166,18 @@ class HistoryForm extends Component {
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label  mt-1" for="usr">Customer Name:</label>
-                           
-                                <div class="col-sm-7">
-                                    <select class="myselect" value={customer_name} onChange={this.customernamechange}>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="4">5</option>
-                                    </select>
-                                </div>
+
+                            <div class="col-sm-7">
+                                <select class="myselect"  onChange={this.customernamechange}>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="4">5</option>
+                                </select>
                             </div>
-                            <div class="form-group row">
+                        </div>
+                        {/* <div class="form-group row">
                                 <label class="col-sm-3 col-form-label mt-4" for="usr">Issue:</label>
                                 <div class="col-sm-7">
                                     <input type="text" name="name" class="form-control mt-4" value={issue} onChange={this.issuechange} />
@@ -188,15 +190,15 @@ class HistoryForm extends Component {
                                     <input type="number" name="name" class="form-control mt-4" value={ticket} onChange={this.ticketchange} />
                                 </div>
                             </div>
+ */}
 
 
+                        <div class="mybuttons">
+                            <button className="btn btn-mysave " type="submit">Save</button>
+                            <button className="btn btn-mycancel " type="submit" onClick={() => this.handleBack()}>Cancel</button>
+                        </div>
 
-                            <div class="mybuttons">
-                                <button className="btn btn-mysave " type="submit">Save</button>
-                                <button className="btn btn-mycancel " type="submit" onClick={() => this.handleBack()}>Cancel</button>
-                            </div>
 
-                        
                     </form>
                 </div>
             </div>

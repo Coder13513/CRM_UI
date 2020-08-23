@@ -21,8 +21,9 @@ background-color: white;}
   
   code { font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; }
   
-  @import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css");;
-  @import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"); 
+  @import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css");
+  @import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+  /* @import url('antd/dist/antd.css');  */
   
   body {
   font-family: "Lato", san1234s-serif;
@@ -304,7 +305,7 @@ background-color: white;}
   }
  */
   .col-form-label{
-      margin-left: 1%;
+      margin-left: -4%;
   }
 
   .mycheck{
@@ -321,6 +322,7 @@ background-color: white;}
     width:50%;
     height: 90%;
     margin-top: 1.5%;
+    margin-left:-50%;
 }
 .form-control{
     /* border-color: #17baa1; */

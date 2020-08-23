@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import axios from 'axios'
+import axios from 'axios'
 import { Form } from 'react-bootstrap'
 // import { API_PATH } from "../components/Global";
 
@@ -135,29 +135,30 @@ class ProductForm extends Component {
         event.preventDefault()
 
         let fd = new FormData()
-        fd.append("Product_no", this.Product_no)
-        fd.append("Product_name", this.Product_name)
+        fd.append("Product_no", this.state.Product_no)
+        fd.append("Product_name", this.state.Product_name)
         fd.append("Company_name", this.state.Company_name)
         fd.append("Product_Description", this.state.Product_Description)
         fd.append("cost", this.state.cost)
 
-        // axios({
-        //     method: 'POST',
-        //     url: API_PATH.URL + "archives/",
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': 'Bearer'+ticket 
-        //     },
-        //     data: fd
-        // })
-        //     .then(response => {
-        //         console.log(response)
+        axios({
+            method: 'POST',
+            // url: API_PATH.URL + "archives/",
+            url:'http://127.0.0.1:8000/api/services/product/',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer'+ticket 
+            },
+            data: fd
+        })
+            .then(response => {
+                console.log(response)
 
-        //     })
-        //     .catch(error => {
-        //         console.log('failure:' + JSON.stringify(this.state));
-        //         console.log(error)
-        //     })
+            })
+            .catch(error => {
+                console.log('failure:' + JSON.stringify(this.state));
+                console.log(error)
+            })
 
     }
 

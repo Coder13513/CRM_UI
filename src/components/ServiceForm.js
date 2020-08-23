@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import axios from 'axios'
+ import axios from 'axios'
 import { Form } from 'react-bootstrap'
 // import { API_PATH } from "../components/Global";
 
@@ -135,29 +135,30 @@ class ServiceForm extends Component {
         event.preventDefault()
 
         let fd = new FormData()
-        fd.append("serviceId", this.serviceId)
+        fd.append("serviceId", this.state.serviceId)
         fd.append("name_c", this.state.name_c)
         fd.append("Type", this.state.Type)
         fd.append("description", this.state.description)
         fd.append("cost", this.state.cost)
 
-        // axios({
-        //     method: 'POST',
-        //     url: API_PATH.URL + "archives/",
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': 'Bearer'+ticket 
-        //     },
-        //     data: fd
-        // })
-        //     .then(response => {
-        //         console.log(response)
+        axios({
+            method: 'POST',
+            // url: API_PATH.URL + "archives/",
+            url:'http://127.0.0.1:8000/api/services/service/',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer'+ticket 
+            },
+            data: fd
+        })
+            .then(response => {
+                console.log(response)
 
-        //     })
-        //     .catch(error => {
-        //         console.log('failure:' + JSON.stringify(this.state));
-        //         console.log(error)
-        //     })
+            })
+            .catch(error => {
+                console.log('failure:' + JSON.stringify(this.state));
+                console.log(error)
+            })
 
     }
 
@@ -181,7 +182,7 @@ class ServiceForm extends Component {
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label  mt-4" for="usr">Service ID:</label>
                             <div class="col-sm-7">
-                                    <input type="text" name="name" class="form-control mt-4" value={serviceId} onChange={this.serviveidchange} />
+                                    <input type="text" name="name" class="form-control mt-4" value={serviceId} onChange={this.serviceidchange} />
                                 </div>
                                
                             </div>

@@ -1,21 +1,21 @@
 import React, { Component } from 'react'
-// import axios from 'axios'
+import axios from 'axios'
 import { Form } from 'react-bootstrap'
-// import { API_PATH } from "../components/Global";
+import { API_PATH } from "../components/Global";
 
 class SlaForm extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            customer_name: '',
+            customer_name: '1',
             issue: '',
-            priority: '',
+            priority: 'HIGH',
             date: '',
-            responsible_person: '',
-            status: '',
+            responsible_person: '1',
+            status: 'IN PROGRESS',
             solution_details: '',
-            ticket: '',
+            Ticket_no: '',
 
             Archives: [],
             // categoryL:[],
@@ -154,32 +154,33 @@ class SlaForm extends Component {
         event.preventDefault()
 
         let fd = new FormData()
-        fd.append("customer_name", this.project_name)
-        fd.append("issue", this.state.description)
-        fd.append("priority", this.state.start_date)
-        fd.append("date", this.state.project_deadline)
-        fd.append("responsible_person", this.state.owner)
-        fd.append("status", this.state.project_status)
-        fd.append("solution_details", this.state.team_lead)
+        fd.append("customer_name", this.state.customer_name)
+        fd.append("issue", this.state.issue)
+        fd.append("priority", this.state.priority)
+        fd.append("date", this.state.date)
+        fd.append("responsible_person", this.state.responsible_person)
+        fd.append("status", this.state.status)
+        fd.append("solution_details", this.state.solution_details)
         fd.append("ticket", this.state.ticket)
 
-        // axios({
-        //     method: 'POST',
-        //     url: API_PATH.URL + "archives/",
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': 'Bearer'+ticket 
-        //     },
-        //     data: fd
-        // })
-        //     .then(response => {
-        //         console.log(response)
+        axios({
+            method: 'POST',
+            // url: API_PATH.URL + "archives/",
+            url: "http://127.0.0.1:8000/api/sla/SLA/", 
+            headers: {
+                'Content-Type': 'application/json',
+                // 'Authorization': 'Bearer'+ticket 
+            },
+            data: fd
+        })
+            .then(response => {
+                console.log(response)
 
-        //     })
-        //     .catch(error => {
-        //         console.log('failure:' + JSON.stringify(this.state));
-        //         console.log(error)
-        //     })
+            })
+            .catch(error => {
+                console.log('failure:' + JSON.stringify(this.state));
+                console.log(error)
+            })
 
     }
 
@@ -201,7 +202,7 @@ class SlaForm extends Component {
                             <h2>Add Sla</h2>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label  mt-4" for="usr">Customer Name:</label>
+                            <label class="col-sm-3 col-form-label  mt-1" for="usr">Customer Name:</label>
                            
                                 <div class="col-sm-7">
                                     <select class="myselect" value={customer_name} onChange={this.customernamechange}>
@@ -222,10 +223,10 @@ class SlaForm extends Component {
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label mt-1 " for="usr">Priority:</label>
                                 <div class="col-sm-7">
-                                    <select class="myselect" value={priority} onChange={this.prioritychange}>
-                                        <option value="1">High</option>
-                                        <option value="2">Low</option>
-                                        <option value="3">Moderate</option>
+                                    <select class="myselect"  onChange={this.prioritychange}>
+                                        <option value="HIGH">High</option>
+                                        <option value="LOW">Low</option>
+                                        <option value="MODERATE">Moderate</option>
 
                                     </select>
                                 </div>
@@ -258,10 +259,10 @@ class SlaForm extends Component {
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label mt-1 " for="usr">Status:</label>
                                 <div class="col-sm-7">
-                                    <select class="myselect" value={status} onChange={this.statuschange}>
-                                        <option value="1">Initiated</option>
-                                        <option value="2">In progress></option>
-                                        <option value="3">Resolved</option>
+                                    <select class="myselect"  onChange={this.statuschange}>
+                                    <option value="INITIATED">Initiated</option>
+                                        <option value="IN PROGRESS">In progress</option>
+                                        <option value="RESOLVED">Resolved</option>
 
                                         {/* {optionItmesO} */}
                                         {/* <option key={Archives.id} value= '1' >{Archives.email}</option> */}
@@ -275,13 +276,7 @@ class SlaForm extends Component {
                                     <input type="text" name="name" class="form-control mt-4" value={solution_details} onChange={this.solutiondetailschange} />
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label mt-4" for="usr">Ticket:</label>
-                                <div class="col-sm-7">
-                                    <input type="number" name="name" class="form-control mt-4" value={ticket} onChange={this.ticketchange} />
-                                </div>
-                            </div>
-
+                           
 
 
                             <div class="mybuttons">

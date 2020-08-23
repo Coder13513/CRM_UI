@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-// import axios from 'axios'
+import React, { Component } from 'react';
+import axios from 'axios'
 import { Form } from 'react-bootstrap'
 // import { API_PATH } from "../components/Global";
 
@@ -14,7 +14,7 @@ class DeptForm extends Component {
             Invoice_date:'',
             payment_terms:'',
             Total:'',
-            service:'',
+            service:'1',
             description:'',
             rate:'',
             Qty:'',
@@ -198,23 +198,24 @@ class DeptForm extends Component {
         fd.append("Discount", this.state.Discount)
         fd.append("Tax", this.state.Tax)
 
-        // axios({
-        //     method: 'POST',
-        //     url: API_PATH.URL + "archives/",
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': 'Bearer'+ticket 
-        //     },
-        //     data: fd
-        // })
-        //     .then(response => {
-        //         console.log(response)
+        axios({
+            method: 'POST',
+            // url: API_PATH.URL + "archives/",
+           url:' http://127.0.0.1:8000/api/finance/invoice/',
+            headers: {
+                'Content-Type': 'application/json',
+                // 'Authorization': 'Bearer'+ticket 
+            },
+            data: fd
+        })
+            .then(response => {
+                console.log(response)
 
-        //     })
-        //     .catch(error => {
-        //         console.log('failure:' + JSON.stringify(this.state));
-        //         console.log(error)
-        //     })
+            })
+            .catch(error => {
+                console.log('failure:' + JSON.stringify(this.state));
+                console.log(error)
+            })
 
     }
 
@@ -297,7 +298,7 @@ class DeptForm extends Component {
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label mt-4" for="usr">Rate:</label>
                                 <div class="col-sm-7">
-                                    <input type="number" step="any" name="name" class="form-control mt-4" value={rate} onChange={this.Totalchange} />
+                                    <input type="number" step="any" name="name" class="form-control mt-4" value={rate} onChange={this.ratechange} />
                                 </div>
                             </div>
                             <div class="form-group row">

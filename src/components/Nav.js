@@ -15,6 +15,11 @@ import Payroll from './Payroll';
 import Project from './Project';
 import Sla from './Sla';
 import Services from './Services';
+import Employee from './Employee';
+import Company from './Company';
+import Customer from './Customer';
+import Vendor from './Vendor';
+import User from './User';
 
 import BusinessForm from './BusinessForm';
 
@@ -66,12 +71,25 @@ render() {
                                 <a ><img alt="logo" src="logo_white.png" width="100%" height=" 20%" /></a>
                                 </div>
                                 <div class="menu">
-                                <Link to="/Donut">
+                                {/* <Link to="/Donut">
                                         <a type="button" className="btn text-light"><i class="fa fa-home"></i> Home</a>
-                                    </Link>
-                                    <Link to="/Auth">
+                                    </Link> */}
+                                    <Link to="/User">
                                         <a type="button" className="btn text-light"><i className="fa fa-user-circle-o"></i> Authentication</a>
                                     </Link>
+                                    <Link to="/Employee">
+                                        <a type="button" className="btn text-light"><i className="fa fa-tv"></i>Employee </a>
+                                    </Link>
+                                    <Link to="/Customer">
+                                        <a type="button" className="btn text-light"><i className="fa fa-tv"></i> Customer</a>
+                                    </Link>
+                                    <Link to="/Company">
+                                        <a type="button" className="btn text-light"><i className="fa fa-music"></i>Company</a>
+                                    </Link>
+                                    <Link to="/Vendor">
+                                        <a type="button" className="btn text-light"><i className="fa fa-archive"></i>Vendor</a>
+                                    </Link>                             
+                                  
                                    
                                     <Link to="/Finance">
                                         <a type="button" className="btn text-light"><i className="fa fa-tv"></i> Finance</a>
@@ -83,7 +101,7 @@ render() {
                                         <a type="button" className="btn text-light"><i className="fa fa-music"></i>Payroll</a>
                                     </Link>
                                     <Link to="/Project">
-                                        <a type="button" className="btn text-light"><i className="fa fa-archive"></i>Project Management</a>
+                                        <a type="button" className="btn text-light"><i className="fa fa-archive"></i>PM</a>
                                     </Link>                                
                                   
                                    
@@ -119,7 +137,11 @@ render() {
                         </nav>
                         <Switch>
                             {/* <Route path="/Donut"> <Stack/>  </Route> */}
-                            {/* <Route path="/Auth"> <Auth /> </Route>   */}
+                            <Route path="/User"> <User /> </Route>  
+                            <Route path="/Employee"> <Employee /> </Route>
+                            <Route path="/Company"> <Company />  </Route>                
+                            <Route path="/Customer"> <Customer />  </Route>
+                            <Route path="/Vendor"> <Vendor />  </Route>
                             <Route path="/Finance"> <Finance /> </Route>
                             <Route path="/Hr"> <Hr />  </Route>                
                             <Route path="/Payroll"> <Payroll />  </Route>
