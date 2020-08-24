@@ -48,7 +48,7 @@ export default function ArchiveFunction() {
             <div class="container mt-5 ">
                 <div class="box">
                     <div class="div1" >
-                        <a class="image"><img src="Ar.png" alt="icon" width="50px" height="50px" /></a>
+                        <a class="image"><img src="Ve.png" alt="icon" width="50px" height="50px" /></a>
                         <a class="count">
                             {archivecount}
                         </a>

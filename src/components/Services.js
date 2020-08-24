@@ -73,7 +73,7 @@ export default function RadioFunction() {
 
                 <div class="box">
                     <div class="div1" >
-                        <a><img src="category.png" alt="icon" width="50px" height="50px" /></a>
+                        <a><img src="plc.png" alt="icon" width="50px" height="50px" /></a>
                         <a class="count">
                             {archivecount}
                         </a>
@@ -94,7 +94,7 @@ export default function RadioFunction() {
 
                 <div class="box">
                     <div class="div1" >
-                        <a><img src="Chan.png" alt="icon" width="50px" height="50px" /></a>
+                        <a><img src="pro.png" alt="icon" width="50px" height="50px" /></a>
                         <a class="count">
                             {channelcount}
                         </a>
@@ -116,7 +116,7 @@ export default function RadioFunction() {
                 </div>
                 <div class="box">
                     <div class="div1" >
-                        <a><img src="Chan.png" alt="icon" width="50px" height="50px" /></a>
+                        <a><img src="ser.png" alt="icon" width="50px" height="50px" /></a>
                         <a class="count">
                             {channelcount}
                         </a>

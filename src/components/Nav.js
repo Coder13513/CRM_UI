@@ -20,8 +20,8 @@ import Company from './Company';
 import Customer from './Customer';
 import Vendor from './Vendor';
 import User from './User';
-
 import BusinessForm from './BusinessForm';
+import Breadcrumb from '../components/Breadcrumb';
 
 export class Nav extends Component {
 
@@ -75,41 +75,41 @@ render() {
                                         <a type="button" className="btn text-light"><i class="fa fa-home"></i> Home</a>
                                     </Link> */}
                                     <Link to="/User">
-                                        <a type="button" className="btn text-light"><i className="fa fa-user-circle-o"></i> Authentication</a>
+                                        <a type="button" className="btn text-light"><i className="fa fa-user-plus mr-3"></i> User</a>
                                     </Link>
                                     <Link to="/Employee">
-                                        <a type="button" className="btn text-light"><i className="fa fa-tv"></i>Employee </a>
+                                        <a type="button" className="btn text-light"><i className="fa fa-black-tie mr-3" ></i>Employee </a>
                                     </Link>
                                     <Link to="/Customer">
-                                        <a type="button" className="btn text-light"><i className="fa fa-tv"></i> Customer</a>
+                                        <a type="button" className="btn text-light"><i className="fa fa-user mr-3"></i> Customer</a>
                                     </Link>
                                     <Link to="/Company">
-                                        <a type="button" className="btn text-light"><i className="fa fa-music"></i>Company</a>
+                                        <a type="button" className="btn text-light"><i className="fa fa-industry mr-3"></i>Company</a>
                                     </Link>
                                     <Link to="/Vendor">
-                                        <a type="button" className="btn text-light"><i className="fa fa-archive"></i>Vendor</a>
+                                        <a type="button" className="btn text-light"><i className="fa fa-user-o mr-3"></i>Vendor</a>
                                     </Link>                             
                                   
                                    
                                     <Link to="/Finance">
-                                        <a type="button" className="btn text-light"><i className="fa fa-tv"></i> Finance</a>
+                                        <a type="button" className="btn text-light"><i className="fa fa-money mr-3"></i> Finance</a>
                                     </Link>
                                     <Link to="/Hr">
-                                        <a type="button" className="btn text-light"><i className="fa fa-tv"></i> HR</a>
+                                        <a type="button" className="btn text-light"><i className="fa fa-user-circle-o mr-3"></i> HR</a>
                                     </Link>
                                     <Link to="/Payroll">
-                                        <a type="button" className="btn text-light"><i className="fa fa-music"></i>Payroll</a>
+                                        <a type="button" className="btn text-light"><i className="fa fa-rupee mr-3"></i>Payroll</a>
                                     </Link>
                                     <Link to="/Project">
-                                        <a type="button" className="btn text-light"><i className="fa fa-archive"></i>PM</a>
+                                        <a type="button" className="btn text-light"><i className="fa fa-check-square-o mr-3"></i>PM</a>
                                     </Link>                                
                                   
                                    
                                     <Link to="/Sla">
-                                        <a type="button" className="btn text-light"><i className="fa fa-youtube-play"></i>SLA </a>
+                                        <a type="button" className="btn text-light"><i className="fa fa-handshake-o mr-3"></i>SLA </a>
                                     </Link>
                                     <Link to="/Services">
-                                        <a type="button" className="btn text-light"><i className="fa fa-gears"></i> Services</a>
+                                        <a type="button" className="btn text-light"><i className="fa fa-gears mr-3"></i> Services</a>
                                     </Link>
                                 </div>
                             </div>
@@ -117,9 +117,9 @@ render() {
                     </div>
                     <div class="col-sm-10" >
                         <nav class="navbar navbar-expand-sm ">
-                            {/* <ul class="navbar-nav">
-                                <Breadcrumbs />
-                            </ul> */}
+                            <ul class="navbar-nav">
+                                <Breadcrumb />
+                            </ul>
                             <ul class="navbar-nav mx-auto  ">
                                 <div class="maintitle">
                                     <h1>CRM</h1>

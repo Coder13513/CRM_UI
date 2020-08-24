@@ -119,7 +119,7 @@ class DeptForm extends Component {
         event.preventDefault()
 
         let fd = new FormData()
-        fd.append("deptId", this.deptId)
+        fd.append("deptId", this.state.deptId)
         fd.append("dept_name", this.state.dept_name)
        
         fd.append("branch", this.state.branch)

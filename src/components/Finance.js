@@ -68,7 +68,7 @@ export default function RadioFunction() {
 
             <div class="box">
                 <div class="div1" >
-                    <a><img src="category.png" alt="icon" width="50px" height="50px" /></a>
+                    <a><img src="In.png" alt="icon" width="50px" height="50px" /></a>
                     <a class="count">
                         {archivecount}
                     </a>
@@ -89,7 +89,7 @@ export default function RadioFunction() {
 
             <div class="box">
                 <div class="div1" >
-                    <a><img src="Chan.png" alt="icon" width="50px" height="50px" /></a>
+                    <a><img src="po.png" alt="icon" width="50px" height="50px" /></a>
                     <a class="count">
                         {channelcount}
                     </a>
@@ -135,7 +135,7 @@ export default function RadioFunction() {
 
         let { topicId } = useParams();
 
-        if (topicId === "Add") {
+        if (topicId === "InvoiceAdd") {
             return <InvoiceForm />
         }
         if (topicId === "InvoiceList") {

@@ -84,17 +84,17 @@ background-color: white;}
   color: white;
   
   }
-  /* .maintitle{ */
+  /* .maintitle{ 
       /* margin-left:80%; */
       /* margin-bottom: -3%; */
-      /* position: fixed; */
+       /* position: fixed;  */
      
-  /* } */
+   /* }  */ */
   .mx-auto{
       margin-left: 40%;
   }
   .maintitle h1{
-      margin-left: 30%;
+      margin-left: 0%;
           }
   .maintitle p{
               font-size:130%;
@@ -294,6 +294,7 @@ background-color: white;}
    /* background-image: linear-gradient(to right,
   rgba(255, 0, 0, 0), rgb(90, 86, 86) );  */
   margin-top: -1%;
+  margin-left: 1.5%;
   /* margin-bottom: -4%!important; */
       
   }
@@ -304,9 +305,9 @@ background-color: white;}
   rgba(255, 0, 0, 0), rgb(90, 86, 86) );
   }
  */
-  .col-form-label{
-      margin-left: -4%;
-  }
+ /* .archive col-form-label{
+      margin-left: 1%;
+  } */
 
   .mycheck{
   width: 40%;
@@ -322,7 +323,7 @@ background-color: white;}
     width:50%;
     height: 90%;
     margin-top: 1.5%;
-    margin-left:-50%;
+    margin-left:0%;
 }
 .form-control{
     /* border-color: #17baa1; */
@@ -402,18 +403,29 @@ background-color: white;}
 }
 .archive h2{
     margin-top:4%;
-    margin-left:1%;
+    margin-left:0%;
     /* text-align:center */
 }
 .List{
     margin-top: 2%;
+    /* margin-left:2%; */
+    margin-right:74%
 }
-.List h2{
+/* .List h2{
   margin-left:2%
-}
-.edit h2{
+} */
+/* .edit {
   margin-left:-3% 
-}
+} */
+.edit{
+  text-align:left;
+   /* background-image: linear-gradient(to right,
+  rgba(255, 0, 0, 0), rgb(90, 86, 86) );  */
+  margin-top: -1%;
+  margin-left: 1.5%;
+  /* margin-bottom: -4%!important; */
+      
+  }
 /* .List h2{
 text-align: left;
  margin-top:4%;
@@ -478,10 +490,10 @@ text-align: left;
 } */
 .table-borderedList{
     /* border:solid #17baa1!important; */
-    width:100%;
+    width:400%;
     margin-left:2%;
-    margin-top: 2%;
-    /* text-align: left; */
+    margin-top: 8%;
+    text-align: left; 
    
 }
 .table-borderedList td{
@@ -526,12 +538,11 @@ color:rgba(255,255,255,1) !important;
  }
    .loginMaintitle p{
 font-size:30px;
-margin-left:40%;
+margin-left:3%;
    } 
-   .loginMaintitle h1{
-       
+   .loginMaintitle h1{       
 font-size:40px;
-margin-left:47%;
+margin-left:2%;
    }
 
    .login{
@@ -548,10 +559,10 @@ margin-left:35%;
    } 
    .btn-loginbtn{
       background-color: #39BAA1;
-      margin-left:48%;
+      margin-left:2%;
   }
    .inputlogin{
-       margin-left:48%;
+       margin-left:2%;
    }
 
    /* --------top------- */

@@ -14,7 +14,7 @@ export class SubscribersForm extends Component {
 
             username: '',
             password: '',
-            confirm_password: '',
+            confirmed_password: '',
             first_name: '',
             last_name: '',
             email: '',           
@@ -68,7 +68,7 @@ export class SubscribersForm extends Component {
   
     submitHandler = (event) => {
         
-        alert(event)
+        // alert(event)
         event.preventDefault()
 
         let fd = new FormData()
@@ -92,7 +92,7 @@ export class SubscribersForm extends Component {
         axios({
             method: 'POST',
             // url: API_PATH.URL +"auth/register/",
-            url: 'http://127.0.0.1:8000/api/auth/user/',
+            url: 'http://127.0.0.1:8000/api/auth/register/',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer'+ticket             },

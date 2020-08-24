@@ -7,11 +7,13 @@ import {
     useParams,
     useRouteMatch
 } from "react-router-dom";
-// import axios from 'axios';
+ import axios from 'axios';
 
 // import Api from "../components/Api"
-// import { API_PATH } from "../components/Global";
+ import { API_PATH } from "../components/Global";
 import UserForm from "../components/UserForm";
+import UserList from "../components/UserList";
+import UserEdit from "../components/UserEdit";
 // import ArchiveList from "../components/ArchiveList";
 // import ArchiveEdit from "../components/ArchiveEdit";
 
@@ -24,22 +26,22 @@ export default function ArchiveFunction() {
 
 
     useEffect(() => {
-        // axios({
-        //     method: 'GET',
-        //     url:  API_PATH.URL + "archives/",
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': 'Bearer' + ticket 
-        //     },
-        // })
-        //     .then(response => {
-        //         console.log(response);
-        //         let Archives = response.data.results;
-        //         archivecount = (Archives.length)
-        //         setArchivecount(archivecount);
+        axios({
+            method: 'GET',
+            url:  API_PATH.URL + "auth/user/",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer' + ticket 
+            },
+        })
+            .then(response => {
+                console.log(response);
+                let Archives = response.data.results;
+                archivecount = (Archives.length)
+                setArchivecount(archivecount);
 
 
-        //     })
+            })
     }
     );
 
@@ -48,7 +50,7 @@ export default function ArchiveFunction() {
             <div class="container mt-5 ">
                 <div class="box">
                     <div class="div1" >
-                        <a class="image"><img src="Ar.png" alt="icon" width="50px" height="50px" /></a>
+                        <a class="image"><img src="U.png" alt="icon" width="50px" height="50px" /></a>
                         <a class="count">
                             {archivecount}
                         </a>
@@ -85,12 +87,12 @@ export default function ArchiveFunction() {
         if (topicId === "Add") {
             return <UserForm />
         }
-        // if (topicId === "Edit") {
-        //     return <ArchiveEdit />
-        // }
-        // if (topicId === "List") {
-        //     return <ArchiveList />
-        // }
+        if (topicId === "Edit") {
+            return <UserEdit />
+        }
+        if (topicId === "List") {
+            return <UserList />
+        }
         // else{
         //     return    <h2> No</h2>    
         // }
