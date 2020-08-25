@@ -165,8 +165,8 @@ class SlaForm extends Component {
 
         axios({
             method: 'POST',
-            // url: API_PATH.URL + "archives/",
-            url: "http://127.0.0.1:8000/api/sla/SLA/", 
+            url: API_PATH.URL + "sla/SLA/",
+            // url: "http://127.0.0.1:8000/api/sla/SLA/", 
             headers: {
                 'Content-Type': 'application/json',
                 // 'Authorization': 'Bearer'+ticket 

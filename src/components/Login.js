@@ -46,8 +46,8 @@ export class LoginPage extends Component {
 
         axios({
             method: 'POST',
-            // url: API_PATH.URL + "auth/login/",
-            url: 'http://127.0.0.1:8000/api/auth/login/',
+            url: API_PATH.URL + "auth/login/",
+            // url: 'http://127.0.0.1:8000/api/auth/login/',
             headers: {
                 'Content-Type': 'application/json',
             },

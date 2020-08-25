@@ -303,8 +303,8 @@ class CustomForm extends Component {
 
         axios({
             method: 'POST',
-            // url: API_PATH.URL + "auth/employee/",
-             url: 'http://127.0.0.1:8000/api/auth/employee/',
+            url: API_PATH.URL + "auth2/employee/",
+            //  url: 'http://127.0.0.1:8000/api/auth/employee/',
             headers: {
                 'Content-Type': 'application/json',
                 //  'Content-Type':'multipart/form-data',

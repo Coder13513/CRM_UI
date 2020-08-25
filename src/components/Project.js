@@ -7,18 +7,18 @@ import {
     useParams,
     useRouteMatch
 } from "react-router-dom";
-// import axios from 'axios'
-// import { API_PATH } from "../components/Global";
+import axios from 'axios'
+import { API_PATH } from "../components/Global";
  
 import BusinessForm from "../components/BusinessForm";
-import BussinessList from "../components/PM/BussinessList";
-import BusinessEdit from "../components/PM/BusinessEdit";
+import BussinessList from "../components/BussinessList";
+import BusinessEdit from "../components/BusinessEdit";
 
 
 
 import ProjectForm from "../components/ProjectForm";
-import PmList from "../components/PM/PmList";
-import PmEdit from "../components/PM/PmEdit";
+import PmList from "../components/PmList";
+import PmEdit from "../components/PmEdit";
 
 
 
@@ -31,37 +31,37 @@ export default function RadioFunction() {
 
     useEffect(() => {
         const ticket = localStorage.getItem("authToken")
-        // axios({
-        //     method: 'GET',
-        //     url: API_PATH.URL + "radio/categories/",
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': 'Bearer'+ticket             },
-        // })
-        //     .then(response => {
-        //         console.log(response);
-        //         let Archives = response.data.results;
-        //         archivecount = (Archives.length)
-        //         setArchivecount(archivecount);
+        axios({
+            method: 'GET',
+            url: API_PATH.URL + "pm/BO/",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer'+ticket             },
+        })
+            .then(response => {
+                console.log(response);
+                let Archives = response.data;
+                archivecount = (Archives.length)
+                setArchivecount(archivecount);
 
 
-        //     })
-        //     axios({
-        //         method: 'GET',
-        //         url: API_PATH.URL + "radio/channels/",
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //             'Authorization': 'Bearer'+ticket 
-        //         },
-        //     })
-        //         .then(response => {
-        //             console.log(response);
-        //             let Archives = response.data.results;
-        //             channelcount = (Archives.length)
-        //             setChannelcount(channelcount);
+            })
+            axios({
+                method: 'GET',
+                url: API_PATH.URL + "pm/Project/",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer'+ticket 
+                },
+            })
+                .then(response => {
+                    console.log(response);
+                    let Archives = response.data;
+                    channelcount = (Archives.length)
+                    setChannelcount(channelcount);
     
     
-        //         })
+                })
     });
 
     return (

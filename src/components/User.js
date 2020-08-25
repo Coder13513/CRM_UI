@@ -9,8 +9,8 @@ import {
 } from "react-router-dom";
  import axios from 'axios';
 
-// import Api from "../components/Api"
- import { API_PATH } from "../components/Global";
+import Api from "../components/Api"
+import { API_PATH } from "../components/Global";
 import UserForm from "../components/UserForm";
 import UserList from "../components/UserList";
 import UserEdit from "../components/UserEdit";
@@ -36,7 +36,7 @@ export default function ArchiveFunction() {
         })
             .then(response => {
                 console.log(response);
-                let Archives = response.data.results;
+                let Archives = response.data;
                 archivecount = (Archives.length)
                 setArchivecount(archivecount);
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Form } from 'react-bootstrap'
-// import { API_PATH } from "../components/Global";
+import { API_PATH } from "../components/Global";
 
 class DeptForm extends Component {
 
@@ -126,8 +126,8 @@ class DeptForm extends Component {
 
         axios({
             method: 'POST',
-            // url: API_PATH.URL + "archives/",
-            url: 'http://127.0.0.1:8000/api/hr/dept/',
+            url: API_PATH.URL + "hr/dept/",
+            // url: 'http://127.0.0.1:8000/api/hr/dept/',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer'+ticket 

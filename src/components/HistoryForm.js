@@ -128,8 +128,8 @@ class HistoryForm extends Component {
         axios({
             method: 'POST',
             // url: API_PATH.URL + "archives/",
-            // url: API_PATH.URL + "sla/History/",
-            url:'http://127.0.0.1:8000/api/sla/History/',
+            url: API_PATH.URL + "sla/History/",
+            // url:'http://127.0.0.1:8000/api/sla/History/',
             headers: {
                 'Content-Type': 'application/json',
                 // 'Authorization': 'Bearer'+ticket 

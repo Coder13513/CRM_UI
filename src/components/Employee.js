@@ -7,10 +7,10 @@ import {
     useParams,
     useRouteMatch
 } from "react-router-dom";
-// import axios from 'axios';
+ import axios from 'axios';
 
 // import Api from "../components/Api"
-// import { API_PATH } from "../components/Global";
+ import { API_PATH } from "../components/Global";
 import EmployeeForm from "../components/EmployeeForm";
 import EmployeeList from "../components/EmployeeList";
 import EmployeeEdit from "../components/EmployeeEdit";
@@ -24,22 +24,22 @@ export default function ArchiveFunction() {
 
 
     useEffect(() => {
-        // axios({
-        //     method: 'GET',
-        //     url:  API_PATH.URL + "archives/",
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': 'Bearer' + ticket 
-        //     },
-        // })
-        //     .then(response => {
-        //         console.log(response);
-        //         let Archives = response.data.results;
-        //         archivecount = (Archives.length)
-        //         setArchivecount(archivecount);
+        axios({
+            method: 'GET',
+            url:  API_PATH.URL + "auth2/employee/",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer' + ticket 
+            },
+        })
+            .then(response => {
+                console.log(response);
+                let Archives = response.data;
+                archivecount = (Archives.length)
+                setArchivecount(archivecount);
 
 
-        //     })
+            })
     }
     );
 

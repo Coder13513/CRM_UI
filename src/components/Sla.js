@@ -7,14 +7,15 @@ import {
     useParams,
     useRouteMatch
 } from "react-router-dom";
-// import axios from 'axios'
-// import { API_PATH } from "../components/Global";
+import axios from 'axios'
+import { API_PATH } from "../components/Global";
  
 import SlaForm from "../components/SlaForm";
-import SlaList from "../components/SLA/SlaList";
-import SlaEdit from "../components/SLA/SlaEdit";
+import SlaList from "../components/SlaList";
+import SlaEdit from "../components/SlaEdit";
 import HistoryForm from "../components/HistoryForm";
-import HList from "../components/SLA/HList";
+import HList from "../components/HList";
+import HEdit from "../components/HEdit";
 
 
 
@@ -30,37 +31,37 @@ export default function RadioFunction() {
 
     useEffect(() => {
         const ticket = localStorage.getItem("authToken")
-        // axios({
-        //     method: 'GET',
-        //     url: API_PATH.URL + "radio/categories/",
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': 'Bearer'+ticket             },
-        // })
-        //     .then(response => {
-        //         console.log(response);
-        //         let Archives = response.data.results;
-        //         archivecount = (Archives.length)
-        //         setArchivecount(archivecount);
+        axios({
+            method: 'GET',
+            url: API_PATH.URL + "sla/SLA/",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer'+ticket             },
+        })
+            .then(response => {
+                console.log(response);
+                let Archives = response.data;
+                archivecount = (Archives.length)
+                setArchivecount(archivecount);
 
 
-        //     })
-        //     axios({
-        //         method: 'GET',
-        //         url: API_PATH.URL + "radio/channels/",
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //             'Authorization': 'Bearer'+ticket 
-        //         },
-        //     })
-        //         .then(response => {
-        //             console.log(response);
-        //             let Archives = response.data.results;
-        //             channelcount = (Archives.length)
-        //             setChannelcount(channelcount);
+            })
+            axios({
+                method: 'GET',
+                url: API_PATH.URL + "sla/History/",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer'+ticket 
+                },
+            })
+                .then(response => {
+                    console.log(response);
+                    let Archives = response.data;
+                    channelcount = (Archives.length)
+                    setChannelcount(channelcount);
     
     
-        //         })
+                })
     });
 
     return (

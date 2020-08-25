@@ -260,8 +260,8 @@ class CustomForm extends Component {
 
     axios({
       method: 'POST',
-      // url: API_PATH.URL + "auth/customer/",
-      url: 'http://127.0.0.1:8000/api/auth/vendor/',
+      url: API_PATH.URL + "auth2/vendor",
+      // url: 'http://127.0.0.1:8000/api/auth/vendor/',
       headers: {
         'Content-Type': 'application/json',
         //  'Content-Type':'multipart/form-data',

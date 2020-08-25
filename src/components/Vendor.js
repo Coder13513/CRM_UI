@@ -7,13 +7,13 @@ import {
     useParams,
     useRouteMatch
 } from "react-router-dom";
-// import axios from 'axios';
+import axios from 'axios';
 
-// import Api from "../components/Api"
-//  import { API_PATH } from "../components/Global";
+import Api from "../components/Api"
+ import { API_PATH } from "../components/Global";
 import VendorForm from "../components/VendorForm";
-import VendorList from "../components/Vendor/VendorList";
-import VendorEdit from "../components/Vendor/VendorEdit";
+import VendorList from "../components/VendorList";
+import VendorEdit from "../components/VendorEdit";
 
 export default function ArchiveFunction() {
 
@@ -24,22 +24,22 @@ export default function ArchiveFunction() {
 
 
     useEffect(() => {
-        // axios({
-        //     method: 'GET',
-        //     url:  API_PATH.URL + "archives/",
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': 'Bearer' + ticket 
-        //     },
-        // })
-        //     .then(response => {
-        //         console.log(response);
-        //         let Archives = response.data.results;
-        //         archivecount = (Archives.length)
-        //         setArchivecount(archivecount);
+        axios({
+            method: 'GET',
+            url:  API_PATH.URL + "auth2/vendor/",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer' + ticket 
+            },
+        })
+            .then(response => {
+                console.log(response);
+                let Archives = response.data;
+                archivecount = (Archives.length)
+                setArchivecount(archivecount);
 
 
-        //     })
+            })
     }
     );
 

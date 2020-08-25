@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { Form } from 'react-bootstrap';
-// import { API_PATH } from "../components/Global";
+import { API_PATH } from "../components/Global";
 
 export class ArchiveEdit extends Component {
     constructor(props) {
@@ -151,8 +151,8 @@ export class ArchiveEdit extends Component {
         // const ticket = localStorage.getItem("authToken")
         axios({
             method: 'GET',
-            // url: API_PATH.URL + "archives/",
-            url: 'http://127.0.0.1:8000/api/auth/user/',
+            url: API_PATH.URL + "auth/user/",
+            // url: 'http://127.0.0.1:8000/api/auth/user/',
             headers: {
                 'Content-Type': 'application/json',
                 // 'Authorization': 'Bearer' + ticket
@@ -209,8 +209,8 @@ export class ArchiveEdit extends Component {
         fd.append("username", this.state.username)
         axios({
             method: 'PUT',
-            // url: API_PATH.URL + "archive/" + id + '/',
-            url: 'http://127.0.0.1:8000/api/auth/user/' + id + '/',
+            url: API_PATH.URL + "auth/user/" + id + '/',
+            // url: 'http://127.0.0.1:8000/api/auth/user/' + id + '/',
 
             headers: {
                 'Content-Type': 'application/json',
@@ -233,8 +233,8 @@ export class ArchiveEdit extends Component {
         const ticket = localStorage.getItem("authToken")
         axios({
             method: 'DELETE',
-            url: 'http://127.0.0.1:8000/api/auth/usr/' + id + '/',
-            // url: API_PATH.URL + "archives/" + id + "/",
+            // url: 'http://127.0.0.1:8000/api/auth/usr/' + id + '/',
+            url: API_PATH.URL + "auth/user/" + id + "/",
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer' + ticket

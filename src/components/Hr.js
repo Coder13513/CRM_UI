@@ -7,15 +7,15 @@ import {
     useParams,
     useRouteMatch
 } from "react-router-dom";
-// import axios from 'axios'
-// import { API_PATH } from "../components/Global";
+import axios from 'axios'
+import { API_PATH } from "../components/Global";
  
 import DeptForm from "../components/DeptForm"; 
-import DList from "../components/HR/DList"; 
-import DEdit from "../components/HR/DEdit";
+import DList from "../components/DList"; 
+import DEdit from "../components/DEdit";
 import StaffForm from "../components/StaffForm";
-import SList  from "../components/HR/SList";
-import SEdit from "../components/HR/SEdit";
+import SList  from "../components/SList";
+import SEdit from "../components/SEdit";
 
 
 
@@ -28,37 +28,37 @@ export default function RadioFunction() {
 
     useEffect(() => {
         const ticket = localStorage.getItem("authToken")
-        // axios({
-        //     method: 'GET',
-        //     url: API_PATH.URL + "radio/categories/",
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': 'Bearer'+ticket             },
-        // })
-        //     .then(response => {
-        //         console.log(response);
-        //         let Archives = response.data.results;
-        //         archivecount = (Archives.length)
-        //         setArchivecount(archivecount);
+        axios({
+            method: 'GET',
+            url: API_PATH.URL + "hr/dept/",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer'+ticket             },
+        })
+            .then(response => {
+                console.log(response);
+                let Archives = response.data;
+                archivecount = (Archives.length)
+                setArchivecount(archivecount);
 
 
-        //     })
-        //     axios({
-        //         method: 'GET',
-        //         url: API_PATH.URL + "radio/channels/",
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //             'Authorization': 'Bearer'+ticket 
-        //         },
-        //     })
-        //         .then(response => {
-        //             console.log(response);
-        //             let Archives = response.data.results;
-        //             channelcount = (Archives.length)
-        //             setChannelcount(channelcount);
+            })
+            axios({
+                method: 'GET',
+                url: API_PATH.URL + "hr/staff/",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer'+ticket 
+                },
+            })
+                .then(response => {
+                    console.log(response);
+                    let Archives = response.data;
+                    channelcount = (Archives.length)
+                    setChannelcount(channelcount);
     
     
-        //         })
+                })
     });
 
     return (

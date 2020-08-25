@@ -28,8 +28,8 @@ export class ArchiveList extends Component {
         const ticket = localStorage.getItem("authToken")
         axios({
             method: 'GET',
-            // url: API_PATH.URL + "archives/",
-            url: 'http://127.0.0.1:8000/api/auth/employee/',
+            url: API_PATH.URL + "auth2/employee/",
+            // url: 'http://127.0.0.1:8000/api/auth/employee/',
             headers: {
                 'Content-Type': 'application/json',
                 // 'Authorization': 'Bearer' + ticket

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-// import { API_PATH } from "../components/Global";
+ import { API_PATH } from "../components/Global";
 
 
 export class ArchiveList extends Component {
@@ -28,8 +28,8 @@ export class ArchiveList extends Component {
         const ticket = localStorage.getItem("authToken")
         axios({
             method: 'GET',
-            // url: API_PATH.URL + "archives/",
-            url: 'http://127.0.0.1:8000/api/auth/user/',
+            url: API_PATH.URL + "auth/register/",
+            // url: 'http://127.0.0.1:8000/api/auth/user/',
             headers: {
                 'Content-Type': 'application/json',
                 // 'Authorization': 'Bearer' + ticket

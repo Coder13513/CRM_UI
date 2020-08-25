@@ -7,18 +7,18 @@ import {
     useParams,
     useRouteMatch
 } from "react-router-dom";
-// import axios from 'axios'
-// import { API_PATH } from "../components/Global";
+import axios from 'axios'
+import { API_PATH } from "../components/Global";
 
 import ServiceForm from "../components/ServiceForm";
-import ServiceList from "../components/Services/ServiceList";
-import ServiceEdit from "../components/Services/ServiceEdit";
+import ServiceList from "../components/ServiceList";
+import ServiceEdit from "../components/ServiceEdit";
 import PlanForm from "../components/PlanForm";
-import PlanList from "../components/Services/PlanList";
-import PlanEdit from "../components/Services/PlanEdit";
+import PlanList from "../components/PlanList";
+import PlanEdit from "../components/PlanEdit";
 import ProductForm from "../components/ProductForm";
-import ProductEdit from "../components/Services/ProductEdit";
-import ProductList from "../components/Services/ProductList";
+import ProductEdit from "../components/ProductEdit";
+import ProductList from "../components/ProductList";
 
 
 
@@ -30,41 +30,58 @@ export default function RadioFunction() {
     let { path, url } = useRouteMatch();
     let [archivecount, setArchivecount] = useState('')
     let [channelcount, setChannelcount] = useState('')
+    let [servicecount, setServicecount] = useState('')
 
 
     useEffect(() => {
         const ticket = localStorage.getItem("authToken")
-        // axios({
-        //     method: 'GET',
-        //     url: API_PATH.URL + "radio/categories/",
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': 'Bearer'+ticket             },
-        // })
-        //     .then(response => {
-        //         console.log(response);
-        //         let Archives = response.data.results;
-        //         archivecount = (Archives.length)
-        //         setArchivecount(archivecount);
+        axios({
+            method: 'GET',
+            url: API_PATH.URL + "services/plan/",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer'+ticket             },
+        })
+            .then(response => {
+                console.log(response);
+                let Archives = response.data;
+                archivecount = (Archives.length)
+                setArchivecount(archivecount);
 
 
-        //     })
-        //     axios({
-        //         method: 'GET',
-        //         url: API_PATH.URL + "radio/channels/",
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //             'Authorization': 'Bearer'+ticket 
-        //         },
-        //     })
-        //         .then(response => {
-        //             console.log(response);
-        //             let Archives = response.data.results;
-        //             channelcount = (Archives.length)
-        //             setChannelcount(channelcount);
+            })
+            axios({
+                method: 'GET',
+                url: API_PATH.URL + "services/product/",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer'+ticket 
+                },
+            })
+                .then(response => {
+                    console.log(response);
+                    let Archives = response.data;
+                    channelcount = (Archives.length)
+                    setChannelcount(channelcount);
 
 
-        //         })
+                })
+                axios({
+                    method: 'GET',
+                    url: API_PATH.URL + "services/service/",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer'+ticket 
+                    },
+                })
+                    .then(response => {
+                        console.log(response);
+                        let Archives = response.data;
+                        servicecount = (Archives.length)
+                        setServicecount(servicecount);
+    
+    
+                    })
     });
 
     return (
@@ -118,7 +135,7 @@ export default function RadioFunction() {
                     <div class="div1" >
                         <a><img src="ser.png" alt="icon" width="50px" height="50px" /></a>
                         <a class="count">
-                            {channelcount}
+                            {servicecount}
                         </a>
                         <a class="option">Services</a>
                     </div>

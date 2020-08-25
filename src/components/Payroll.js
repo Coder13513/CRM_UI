@@ -7,18 +7,18 @@ import {
     useParams,
     useRouteMatch
 } from "react-router-dom";
-// import axios from 'axios'
-// import { API_PATH } from "../components/Global";
+import axios from 'axios'
+import { API_PATH } from "../components/Global";
  
 import PackageForm from "../components/PackageForm";
-import EEdit from "../components/Payroll/EEdit";
-import EList from "../components/Payroll/EList";
+import EEdit from "../components/EEdit";
+import EList from "../components/EList";
 
 
 
 import SalaryForm from "../components/SalaryForm";
-import SList from "../components/Payroll/SList";
-import SEdit from "../components/Payroll/SEdit";
+import SalList from "../components/SalList";
+import SalEdit from "../components/SalEdit";
 
 
 
@@ -31,37 +31,37 @@ export default function RadioFunction() {
 
     useEffect(() => {
         const ticket = localStorage.getItem("authToken")
-        // axios({
-        //     method: 'GET',
-        //     url: API_PATH.URL + "radio/categories/",
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': 'Bearer'+ticket             },
-        // })
-        //     .then(response => {
-        //         console.log(response);
-        //         let Archives = response.data.results;
-        //         archivecount = (Archives.length)
-        //         setArchivecount(archivecount);
+        axios({
+            method: 'GET',
+            url: API_PATH.URL + "payroll/empack/",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer'+ticket             },
+        })
+            .then(response => {
+                console.log(response);
+                let Archives = response.data;
+                archivecount = (Archives.length)
+                setArchivecount(archivecount);
 
 
-        //     })
-        //     axios({
-        //         method: 'GET',
-        //         url: API_PATH.URL + "radio/channels/",
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //             'Authorization': 'Bearer'+ticket 
-        //         },
-        //     })
-        //         .then(response => {
-        //             console.log(response);
-        //             let Archives = response.data.results;
-        //             channelcount = (Archives.length)
-        //             setChannelcount(channelcount);
+            })
+            axios({
+                method: 'GET',
+                url: API_PATH.URL + "payroll/monthsal/",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer'+ticket 
+                },
+            })
+                .then(response => {
+                    console.log(response);
+                    let Archives = response.data;
+                    channelcount = (Archives.length)
+                    setChannelcount(channelcount);
     
     
-        //         })
+                })
     });
 
     return (
@@ -150,10 +150,10 @@ export default function RadioFunction() {
             return <SalaryForm/>
         }
         if (topicId === "SalaryList") {
-            return <SList />
+            return <SalList />
         }
         if (topicId === "SalaryEdit") {
-            return <SEdit />
+            return <SalEdit />
         }
       
     }

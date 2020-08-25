@@ -91,8 +91,8 @@ export class SubscribersForm extends Component {
         const ticket = localStorage.getItem("authToken")
         axios({
             method: 'POST',
-            // url: API_PATH.URL +"auth/register/",
-            url: 'http://127.0.0.1:8000/api/auth/register/',
+            url: API_PATH.URL +"auth/register/",
+            // url: 'http://127.0.0.1:8000/api/auth/register/',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer'+ticket             },
