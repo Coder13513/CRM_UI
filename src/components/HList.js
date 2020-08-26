@@ -74,7 +74,7 @@ export class ArchiveList extends Component {
                         {Archives.map(Archive => (
                             <tbody>
                             <tr key={Archive.id}>
-                            <td>{Archive.Ticket_no}</td>
+                            <td>{Archive.ticket_no}</td>
                                 <td>{Archive.issue}</td>
                                
                                 {/* <td>{Archive.num_of_days}</td> */}

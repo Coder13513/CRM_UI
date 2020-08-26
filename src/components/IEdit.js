@@ -423,7 +423,7 @@ export class ArchiveEdit extends Component {
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label mt-4" for="usr">Discount:</label>
                                 <div class="col-sm-7">
-                                    <input type="number" step="any" name="name" class="form-control mt-4" value={Discount} onChange={this.Discountchange} />
+                                    <input type="text" step="any" name="name" class="form-control mt-4" value={Discount} onChange={this.Discountchange} />
                                 </div>
                             </div>             
                           

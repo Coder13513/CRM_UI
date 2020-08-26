@@ -20,6 +20,7 @@ class DeptForm extends Component {
             Qty:'',
             Discount:'',
             Tax:'',
+            invoice_link:'',
             Archives: [],
             // categoryL:[],
 
@@ -47,6 +48,12 @@ class DeptForm extends Component {
     Invoicedatechange = (event) => {
         this.setState({
             Invoice_date: event.target.value
+
+        })
+    }
+    Invoicelinkchange = (event) => {
+        this.setState({
+            invoice_link: event.target.value
 
         })
     }
@@ -197,6 +204,7 @@ class DeptForm extends Component {
         fd.append("Qty", this.state.Qty)
         fd.append("Discount", this.state.Discount)
         fd.append("Tax", this.state.Tax)
+        fd.append("invoice_link", this.state.invoice_link)
 
         axios({
             method: 'POST',
@@ -220,7 +228,7 @@ class DeptForm extends Component {
     }
 
     render() {
-        const {from_company,customer_name,Invoice_date,Invoice_number,payment_terms,Total,service,description,rate,Qty,Discount,Tax } = this.state
+        const {invoice_link,from_company,customer_name,Invoice_date,Invoice_number,payment_terms,Total,service,description,rate,Qty,Discount,Tax } = this.state
         // let optionItmes = categoryL.map((categ)=>
         // <option key={categ.id} value={categ.id}>{categ.name}</option>
         // );
@@ -318,7 +326,14 @@ class DeptForm extends Component {
                                 <div class="col-sm-7">
                                     <input type="number" step="any" name="name" class="form-control mt-4" value={Discount} onChange={this.Discountchange} />
                                 </div>
+                            </div>      
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label mt-4" for="usr">Link:</label>
+                                <div class="col-sm-7">
+                                    <input type="text" step="any" name="name" class="form-control mt-4" value={invoice_link} onChange={this.Invoicelinkchange} />
+                                </div>
                             </div>             
+                                 
                           
                           
                           

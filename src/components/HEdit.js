@@ -11,7 +11,7 @@ export class ArchiveEdit extends Component {
 
             customer_name: '1',
             issue: '',
-            ticket: '',
+            ticket_no: '',
           
 
 
@@ -44,7 +44,7 @@ export class ArchiveEdit extends Component {
    
     ticketchange = (event) => {
         this.setState({
-            ticket: event.target.value
+            ticket_no: event.target.value
 
         })
     }
@@ -162,11 +162,7 @@ export class ArchiveEdit extends Component {
         this.setState({
             customer_name: editingItem.customer_name,
             issue: editingItem.issue,
-            priority: editingItem.priority,
-            date: editingItem.data,
-            responsible_person: editingItem.responsible_person,
-            status: editingItem.status,
-            solution_details: editingItem.solution_details,
+          
             
 
 
@@ -229,7 +225,7 @@ export class ArchiveEdit extends Component {
             })
     }
     render() {
-        const { customer_name, issue, priority, date, responsible_person, status, solution_details, ticket } = this.state
+        const { customer_name, issue, priority, date, responsible_person, status, solution_details, ticket_no} = this.state
 
         // let optionItmes = categoryL.map((categ) =>
         //     <option key={categ.id} value={categ.id}>{categ.name}</option>
@@ -279,7 +275,7 @@ export class ArchiveEdit extends Component {
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            {/* <div class="form-group row">
                                 <label class="col-sm-3 col-form-label mt-4" for="usr">Issue:</label>
                                 <div class="col-sm-7">
                                     <input type="text" name="name" class="form-control mt-4" value={issue} onChange={this.issuechange} />
@@ -292,7 +288,7 @@ export class ArchiveEdit extends Component {
                                     <input type="number" name="name" class="form-control mt-4" value={ticket} onChange={this.ticketchange} />
                                 </div>
                             </div>
-
+ */}
 
 
                            
