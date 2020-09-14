@@ -51,12 +51,12 @@ class DeptForm extends Component {
 
         })
     }
-    Invoicelinkchange = (event) => {
-        this.setState({
-            invoice_link: event.target.value
+    // Invoicelinkchange = (event) => {
+    //     this.setState({
+    //         invoice_link: event.target.value
 
-        })
-    }
+    //     })
+    // }
     paymenttermschange = (event) => {
         this.setState({
             payment_terms: event.target.value
@@ -189,6 +189,7 @@ class DeptForm extends Component {
     submitHandler = (event) => {
         const ticket = localStorage.getItem("authToken")
         event.preventDefault()
+        let invoice_link=[]
 
         let fd = new FormData()
 
@@ -198,13 +199,13 @@ class DeptForm extends Component {
         fd.append("Invoice_date", this.state.Invoice_date)
         fd.append("payment_terms", this.state.payment_terms)
         fd.append("Total", this.state.Total)
-        fd.append("service", this.state.service)
-        fd.append("description", this.state.description)
-        fd.append("rate", this.state.rate)
-        fd.append("Qty", this.state.Qty)
-        fd.append("Discount", this.state.Discount)
-        fd.append("Tax", this.state.Tax)
-        fd.append("invoice_link", this.state.invoice_link)
+        // fd.append("service", this.state.service)
+        // fd.append("description", this.state.description)
+        // fd.append("rate", this.state.rate)
+        // fd.append("Qty", this.state.Qty)
+        // fd.append("Discount", this.state.Discount)
+        // fd.append("Tax", this.state.Tax)
+        fd.append("invoice_link", JSON.stringify(invoice_link))
 
         axios({
             method: 'POST',
@@ -327,13 +328,13 @@ class DeptForm extends Component {
                                     <input type="number" step="any" name="name" class="form-control mt-4" value={Discount} onChange={this.Discountchange} />
                                 </div>
                             </div>      
-                            <div class="form-group row">
+                            {/* <div class="form-group row">
                                 <label class="col-sm-3 col-form-label mt-4" for="usr">Link:</label>
                                 <div class="col-sm-7">
                                     <input type="text" step="any" name="name" class="form-control mt-4" value={invoice_link} onChange={this.Invoicelinkchange} />
                                 </div>
                             </div>             
-                                 
+                                  */}
                           
                           
                           
